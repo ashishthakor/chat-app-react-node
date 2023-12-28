@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
-// import ChatSection from "./ChatSection";
+import ChatSection from "./ChatSection";
 
 const socket = io.connect("http://localhost:8000");
 
@@ -50,9 +50,13 @@ export class ChatAppComponent extends Component {
         <br />
         <br />
 
-        {/* <ChatSection /> */}
+        <ChatSection
+          socket={socket}
+          room={this.state.roomName}
+          userName={this.state.userName}
+        />
       </>
-    );
+    );  
   }
 }
 
